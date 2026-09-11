@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neon Jam</title>
+<meta name="description" content="Neon Jam — a synthwave sliding-block puzzle game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:     #0a0010;
+    --pink:   #ff2d78;
+    --cyan:   #00f5ff;
+    --purple: #b400ff;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html, body {
+    width:100%; height:100%;
+    background:var(--bg);
+    font-family:'Orbitron', monospace;
+    overflow:hidden;
+  }
+
+  .sky {
+    position:fixed; inset:0; z-index:0;
+    background:
+      radial-gradient(ellipse at 50% 38%, rgba(255,45,120,0.35) 0%, rgba(180,0,255,0.18) 35%, transparent 65%),
+      linear-gradient(180deg, #0a0010 0%, #1a0030 45%, #2a0040 60%, #0a0010 100%);
+  }
+
+  .grid-floor {
+    position:fixed; left:0; right:0; bottom:0; top:52%; z-index:1;
+    background-image:
+      linear-gradient(rgba(180,0,255,0.55) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(180,0,255,0.55) 1px, transparent 1px);
+    background-size:48px 48px;
+    transform:perspective(280px) rotateX(75deg);
+    transform-origin:center top;
+    mask-image:linear-gradient(180deg, transparent, #000 12%);
+    -webkit-mask-image:linear-gradient(180deg, transparent, #000 12%);
+  }
+
+  .content {
+    position:relative; z-index:10;
+    width:100%; height:100%;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    gap:0; padding:24px; text-align:center;
+  }
+
+  h1 {
+    font-size:clamp(2.2rem, 11vw, 4rem);
+    font-weight:900; letter-spacing:0.18em; color:#fff;
+    text-shadow:0 0 10px var(--cyan), 0 0 30px var(--cyan), 0 0 60px var(--purple), 3px 3px 0 var(--pink);
+    animation:titlePulse 3s ease-in-out infinite;
+  }
+
+  .tagline {
+    font-family:'Share Tech Mono', monospace;
+    font-size:clamp(0.75rem, 4vw, 1rem);
+    letter-spacing:0.3em; color:var(--pink);
+    text-shadow:0 0 8px var(--pink);
+    margin-top:14px;
+  }
+
+  .desc {
+    font-family:'Share Tech Mono', monospace;
+    font-size:clamp(0.75rem, 3.2vw, 0.9rem);
+    color:#c9a8e8; letter-spacing:0.04em;
+    margin-top:36px; max-width:420px; line-height:1.6;
+  }
+
+  .contact {
+    margin-top:40px;
+    font-family:'Share Tech Mono', monospace;
+    font-size:clamp(0.7rem, 3.2vw, 0.85rem);
+    letter-spacing:0.08em; color:var(--cyan);
+  }
+  .contact a {
+    color:var(--cyan); text-decoration:none;
+    text-shadow:0 0 8px var(--cyan);
+    border-bottom:1px solid rgba(0,245,255,0.4);
+    padding-bottom:1px;
+  }
+  .contact a:hover { text-shadow:0 0 14px var(--cyan); }
+
+  @keyframes titlePulse {
+    0%,100% { text-shadow:0 0 10px var(--cyan), 0 0 30px var(--cyan), 0 0 60px var(--purple), 3px 3px 0 var(--pink); }
+    50%     { text-shadow:0 0 20px var(--cyan), 0 0 50px var(--cyan), 0 0 90px var(--purple), 3px 3px 0 var(--pink); }
+  }
+</style>
+</head>
+<body>
+  <div class="sky"></div>
+  <div class="grid-floor"></div>
+  <div class="content">
+    <h1>NEON JAM</h1>
+    <div class="tagline">▸ SLIDE TO ESCAPE ◂</div>
+    <p class="desc">A synthwave-styled sliding-block puzzle game. Clear a path, beat the clock, and escape the grid.</p>
+    <div class="contact">Contact: <a href="mailto:neonjamapp@gmail.com">neonjamapp@gmail.com</a></div>
+  </div>
+</body>
+</html>
